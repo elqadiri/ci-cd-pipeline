@@ -31,7 +31,7 @@ jobs:
           N8N_API_KEY: ${{ secrets.N8N_API_KEY }}
           N8N_HOST: ${{ secrets.N8N_HOST }}
         run: |
-          echo "🚀 Deploying workflow to n8n..."
+          echo "Deploying workflow to n8n..."
           echo "Host: $N8N_HOST"
           
           WORKFLOW_ID=$(jq -r '.id // empty' workflow.json)
@@ -40,7 +40,7 @@ jobs:
           echo "Workflow: $WORKFLOW_NAME"
           
           if [ -z "$WORKFLOW_ID" ]; then
-            echo "📝 Creating new workflow..."
+            echo " Creating new workflow..."
             RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$N8N_HOST/api/v1/workflows" \
               -H "X-N8N-API-KEY: $N8N_API_KEY" \
               -H "Content-Type: application/json" \
@@ -50,15 +50,15 @@ jobs:
             BODY=$(echo "$RESPONSE" | sed '$d')
             
             if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
-              echo "✅ Workflow created successfully!"
+              echo " Workflow created successfully!"
               echo "$BODY" | jq '.'
             else
-              echo "❌ Failed to create workflow (HTTP $HTTP_CODE)"
+              echo " Failed to create workflow (HTTP $HTTP_CODE)"
               echo "$BODY"
               exit 1
             fi
           else
-            echo "🔄 Updating existing workflow (ID: $WORKFLOW_ID)..."
+            echo "Updating existing workflow (ID: $WORKFLOW_ID)..."
             RESPONSE=$(curl -s -w "\n%{http_code}" -X PUT "$N8N_HOST/api/v1/workflows/$WORKFLOW_ID" \
               -H "X-N8N-API-KEY: $N8N_API_KEY" \
               -H "Content-Type: application/json" \
@@ -68,10 +68,10 @@ jobs:
             BODY=$(echo "$RESPONSE" | sed '$d')
             
             if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
-              echo "✅ Workflow updated successfully!"
+              echo "Workflow updated successfully!"
               echo "$BODY" | jq '.'
             else
-              echo "❌ Failed to update workflow (HTTP $HTTP_CODE)"
+              echo "Failed to update workflow (HTTP $HTTP_CODE)"
               echo "$BODY"
               exit 1
             fi
