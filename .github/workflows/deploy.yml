@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'workflow.json'
+      - 's8_ex3.json'
     workflow_dispatch:
 
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Validate workflow.json
         run: |
           echo "Validating workflow file..."
-          if ! jq empty workflow.json 2>/dev/null; then
+          if ! jq empty s8_ex3.json 2>/dev/null; then
             echo "❌ Invalid JSON in workflow.json"
             exit 1
           fi
@@ -35,8 +35,8 @@ jobs:
           echo "Deploying workflow to n8n..."
           echo "Host: $N8N_HOST"
           
-          WORKFLOW_ID=$(jq -r '.id // empty' workflow.json)
-          WORKFLOW_NAME=$(jq -r '.name // "Unnamed Workflow"' workflow.json)
+          WORKFLOW_ID=$(jq -r '.id // empty' s8_ex3.json)
+          WORKFLOW_NAME=$(jq -r '.name // "Unnamed Workflow"' s8_ex3.json)
           
           echo "Workflow: $WORKFLOW_NAME"
           
@@ -45,7 +45,7 @@ jobs:
             RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$N8N_HOST/api/v1/workflows" \
               -H "X-N8N-API-KEY: $N8N_API_KEY" \
               -H "Content-Type: application/json" \
-              -d @workflow.json)
+              -d @s8_ex3.json)
             
             HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
             BODY=$(echo "$RESPONSE" | sed '$d')
@@ -63,7 +63,7 @@ jobs:
             RESPONSE=$(curl -s -w "\n%{http_code}" -X PUT "$N8N_HOST/api/v1/workflows/$WORKFLOW_ID" \
               -H "X-N8N-API-KEY: $N8N_API_KEY" \
               -H "Content-Type: application/json" \
-              -d @workflow.json)
+              -d @s8_ex3.json)
             
             HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
             BODY=$(echo "$RESPONSE" | sed '$d')
