@@ -10,10 +10,10 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        -576,
-        112
+        -848,
+        -64
       ],
-      "id": "72af2df6-bc47-4bd6-9310-1f88d08282e7",
+      "id": "02b47df7-1f66-4c68-ac5d-3743e100828a",
       "name": "Webhook",
       "webhookId": "09b8d59d-34e9-4efc-9f2e-f3ac6ea32d3b"
     },
@@ -88,14 +88,14 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        0,
-        0
+        -272,
+        -176
       ],
-      "id": "1b67ef04-85d5-4b25-9b63-3b9dc38f2d73",
+      "id": "95ad2f65-0138-46d8-86c7-019fea7ad175",
       "name": "Insert rows in a table",
       "credentials": {
         "postgres": {
-          "id": "t1GjgGOMcnqFb2QU",
+          "id": "xS3PDGSG2SqDuEKe",
           "name": "Postgres account"
         }
       }
@@ -108,14 +108,14 @@
       "type": "n8n-nodes-base.rabbitmq",
       "typeVersion": 1.1,
       "position": [
-        352,
-        0
+        80,
+        -176
       ],
-      "id": "ed3a5eee-53fe-443c-b9e2-5b5c57b892e5",
+      "id": "d05625c3-c05d-4fa0-b4b5-ec9756740208",
       "name": "RabbitMQ",
       "credentials": {
         "rabbitmq": {
-          "id": "D9rcO4UkxNl8B00d",
+          "id": "lzYEtlaagh3yZJKB",
           "name": "RabbitMQ account"
         }
       }
@@ -147,10 +147,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -368,
-        112
+        -640,
+        -64
       ],
-      "id": "0e27921a-b7f8-4fc4-938b-101b1a3d978b",
+      "id": "963c913b-ae0d-4e4c-9ea5-4caa68744be8",
       "name": "If"
     },
     {
@@ -160,10 +160,10 @@
       "type": "n8n-nodes-base.stopAndError",
       "typeVersion": 1,
       "position": [
-        96,
-        256
+        -176,
+        80
       ],
-      "id": "b5418770-5c20-4e18-b86a-a3e77cb9a9d7",
+      "id": "a61bb7ad-5f05-4da9-acd5-18ff4c0aec8f",
       "name": "Stop and Error"
     }
   ],
@@ -214,11 +214,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d58a6c8b-cc18-4eba-9f3d-deacf62506e1",
+  "versionId": "4fa0fe75-3077-48b0-8198-ed329914ed46",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "9ae9ff0b3750e74797fa012dbbea7b02501c654317a062e659bca6b93e3d8c23"
+    "instanceId": "f38b2142f849972793f5cf720ddddf4b2c4f9735e05233ce32014d509210b5d7"
   },
-  "id": "d67loQmmuTrcmcBA",
+  "id": "aUBriEU3mbOucWmJ",
   "tags": []
 }
