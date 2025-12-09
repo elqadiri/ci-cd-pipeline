@@ -20,7 +20,8 @@ jobs:
           N8N_HOST: ${{ secrets.N8N_PROD_HOST }}
           N8N_API_KEY: ${{ secrets.N8N_PROD_API_KEY }}
         run: |
-          curl -X POST "${N8N_HOST}/api/v1/workflows" \
-            -H "X-N8N-API-KEY: ${N8N_API_KEY}" \
+          curl -X POST "$N8N_HOST/api/v1/workflows" \
             -H "Content-Type: application/json" \
-            -d @workflow.json
+            -H "X-N8N-API-KEY: $N8N_API_KEY" \
+            --data-binary @workflow.json
+
