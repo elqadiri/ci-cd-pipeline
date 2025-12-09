@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'ex3_s8.json'
+      - 'workflow.json'
 
 jobs:
   deploy:
@@ -23,4 +23,4 @@ jobs:
           curl -X POST "${N8N_HOST}/api/v1/workflows" \
             -H "X-N8N-API-KEY: ${N8N_API_KEY}" \
             -H "Content-Type: application/json" \
-            -d @ex3_s8.json
+            -d @workflow.json
